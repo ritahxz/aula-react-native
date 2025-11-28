@@ -1,7 +1,5 @@
-import { TextInput } from 'react-native';
+import { TextInput, TextInputProps } from 'react-native';
 
-export function InputCustomizado() {
-  return (
-    <  TextInput />
-  );
+export function InputCustomizado({ ...rest }: TextInputProps) {
+  return <TextInput {...rest} />;
 }
