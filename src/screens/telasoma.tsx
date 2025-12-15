@@ -1,55 +1,49 @@
-import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { useState } from 'react';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function TelaSoma() {
-    const [num1, setNum1] = useState('');
-    const [num2, setNum2] = useState('');
-    const [num3, setNum3] = useState('');
-    const [resultado, setResultado] = useState<number | null>(null);
-    
-     function calcular() {
-        const soma =
-        Number(num1) +
-        Number(num2) +
-        Number(num3);
-        
-        setResultado(soma);
-     }
+  const [num1, setNum1] = useState('');
+  const [num2, setNum2] = useState('');
+  const [num3, setNum3] = useState('');
+  const [resultado, setResultado] = useState<number | null>(null);
 
-     return (
-        <View style={styles.container}>
-            <Text style={styles.titulo}>Somar 3 numeros</Text>
+  function calcular() {
+    const soma = Number(num1) + Number(num2) + Number(num3);
 
-            <TextInput
-             style={styles.input}
-             keyboardType="numeric"
-             placeholder="Valor 1"
-             value={num1}
-             onChangeText={setNum1}
-            />
+    setResultado(soma);
+  }
 
-            <TextInput
-             style={styles.input}
-             keyboardType="numeric"
-             placeholder="Valor 2"
-             value={num2}
-             onChangeText={setNum2}
-            />
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Somar 3 numeros</Text>
 
-           <TextInput
-             style={styles.input}
-             keyboardType="numeric"
-             placeholder="Valor 3"
-             value={num3}
-             onChangeText={setNum3}
-            />
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        placeholder="Valor 1"
+        value={num1}
+        onChangeText={setNum1}
+      />
 
-            <Button title="Calcular" onPress={calcular} />
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        placeholder="Valor 2"
+        value={num2}
+        onChangeText={setNum2}
+      />
 
-            
-      {resultado !== null && (
-        <Text style={styles.resultado}>Resultado: {resultado}</Text>
-      )}
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        placeholder="Valor 3"
+        value={num3}
+        onChangeText={setNum3}
+      />
+
+      <Button title="Calcular" onPress={calcular} />
+
+      {resultado !== null && <Text style={styles.resultado}>Resultado: {resultado}</Text>}
     </View>
   );
 }
@@ -64,7 +58,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 24,
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'center',
   },
 
   input: {
@@ -72,13 +66,13 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     marginBottom: 10,
     padding: 10,
-    borderRadius: 5
+    borderRadius: 5,
   },
 
   resultado: {
     marginTop: 20,
     fontSize: 22,
     fontWeight: 'bold',
-    textAlign: 'center'
-  }
-}); 
+    textAlign: 'center',
+  },
+});
