@@ -1,24 +1,34 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { useState, useEffect } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function TelaContador() {
-  const [valor, setValor] = useState(0);
+  const [contador, setContador] = useState(7);
+
+  function incrementar() {
+    setContador(contador + 1);
+  }
+
+  function decrementar() {
+    setContador(contador - 1);
+  }
+
+  useEffect(() => {
+    console.log('Valor do contador:', contador);
+  }, [contador]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Contador</Text>
+      <Text style={styles.titulo}>Inputs</Text>
 
-      <Text style={styles.valor}>{valor}</Text>
-
-      <View style={styles.botoes}>
-        <TouchableOpacity style={styles.botao} onPress={() => setValor(valor + 1)}>
-          <Text style={styles.textoBotao}>+</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.botao} onPress={() => setValor(valor - 1)}>
-          <Text style={styles.textoBotao}>-</Text>
-        </TouchableOpacity>
+      <View style={styles.botao}>
+        <Button title="+" onPress={incrementar} />
       </View>
+
+      <View style={styles.botao}>
+        <Button title="-" onPress={decrementar} />
+      </View>
+
+      <Text style={styles.valor}>{contador}</Text>
     </View>
   );
 }
@@ -26,32 +36,22 @@ export default function TelaContador() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
+    justifyContent: 'center',
+    paddingHorizontal: 20,
   },
+
   titulo: {
-    fontSize: 32,
-    fontWeight: "bold",
+    fontSize: 22,
+    textAlign: 'center',
+    marginBottom: 15,
+  },
+
+  botao: {
     marginBottom: 20,
   },
+
   valor: {
-    fontSize: 60,
-    fontWeight: "bold",
-    marginBottom: 40,
-  },
-  botoes: {
-    flexDirection: "row",
-    gap: 20,
-  },
-  botao: {
-    backgroundColor: "#e0e0e0",
-    paddingVertical: 15,
-    paddingHorizontal: 25,
-    borderRadius: 12,
-  },
-  textoBotao: {
     fontSize: 32,
-    fontWeight: "bold",
+    textAlign: 'center',
   },
 });
