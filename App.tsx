@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
     <SafeAreaView className="flex-1">
-      <TelaMedia/>
+      <ListasScreen/>
       
     </SafeAreaView>
     <StatusBar style="auto" />
