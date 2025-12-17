@@ -1,13 +1,16 @@
 import { BotaoCustomizado } from '@/components/botaoCustomizado';
 import { InputCustomizado } from '@/components/inputCustomizado';
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { Text, View, ViewComponent } from 'react-native';
 
 export function LoginScreen() {
   const [Login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
+  const navigation = useNavigation();
   function logar () {
     console.log("login", Login, "senha", senha);
+    navigation.navigate('Soma');
   }
   return ( 
     <View className="flex-1 items-center justify-center ">
