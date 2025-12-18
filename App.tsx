@@ -11,16 +11,18 @@ import TelaParImpar from '@/screens/telaimparpar';
 import TelaMedia from '@/screens/telamedia';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { RootStackParamList } from '@/interface/rootPages';
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<RootStackParamList>();
   return (
     <>
       <SafeAreaView className="flex-1">
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Soma" component={TelaSoma} />
+            <Stack.Screen name="login" component={LoginScreen} />
+            <Stack.Screen name="Soma" component={Soma} />
+            <Stack.Screen name="listas" component={ListasScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
