@@ -4,6 +4,7 @@ import { NativeStackDescriptor, NativeStackNavigationProp } from "node_modules/@
   login: undefined ;
   Soma: undefined ;
   listas: undefined ;
+  listaimparpar: undefined ;
 };
 
 export type ProfileScreenNavigationProp = NativeStackNavigationProp<
