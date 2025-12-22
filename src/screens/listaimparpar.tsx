@@ -1,16 +1,31 @@
 import { BotaoCustomizado } from '@/components/botaoCustomizado';
 import { InputCustomizado } from '@/components/inputCustomizado';
-import { useState } from 'react';
+import { getData, storeData } from '@/utils/storage';
+import { useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
 export function listaImparPar() {
   const [item, setItem] = useState('');
+
   const [lista, setLista] = useState<number[]>([]);
 
   function verificaImparPar() {
     setLista([...lista, Number(item)]);
+    storeData({ key: 'listaImparPar', value: JSON.stringify([...lista, Number(item)]) });
     setItem('');
   }
+
+  async function carregaLista() {
+    const dados = await getData('listaImparPar');
+    if (dados) {
+      setLista(JSON.parse(dados));
+    }
+  }
+
+  useEffect(() => {
+    carregaLista();
+  }, []);
+
   return (
     <View className="flex-1 items-center justify-center">
       <Text className="text -4xl m-3">Lista Impar Par</Text>
